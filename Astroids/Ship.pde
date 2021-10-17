@@ -16,6 +16,7 @@ class Ship extends GameObject {
     threshold = 15;
     imtimer = 120;
     imthreshold = 180;
+    tptimer = 200;
   }
 
   //Behaviour functions
@@ -28,8 +29,8 @@ class Ship extends GameObject {
     rotate(direction.heading());
     if (imtimer >= 0) {
       
-      fill(255, 0, 0);
-      stroke(255, 0, 0);
+      fill(red);
+      stroke(red);
       rect(-25, 8, 20, 10);
       rect(-25, -8, 20, 10);
       triangle(-25, 25, 25, 0, -25, -25);
@@ -44,16 +45,27 @@ class Ship extends GameObject {
     popMatrix();
     fill(255);
 text("lives"+lives , 400, 50);
-}
+fill(255);
+rect(100, 550, 200, 50);
+stroke(0);
+fill(0);
+rect(100, 550, -tptimer, 50);
+
+ 
+  tptimer--;
+  }
+ 
+   
+     
+    
+
+
   void act() {
 
     super.act();
 
-tptimer ++;
-    if (zkey && tptimer > 900) {
-      imtimer = 120;
-       randomlocation = new PVector(random(width, 0), random(0, height));
-
+tptimer --;
+    
 
 
 
@@ -80,6 +92,17 @@ mode = GAMEOVER;
       myObjects.add(new Bullet());
       shotTimer = 0;
     }
+    if (enterkey && tptimer <= 0) {
+      imtimer = 120;
+      location = new PVector(random(0, width), random(0, height));
+  }
+  
+  if (tptimer <= 0) {
+  tptimer = 0;
+  }
+  if (enterkey) {
+  tptimer = 200;
+  }
     if (imtimer >= imthreshold) {
 
 

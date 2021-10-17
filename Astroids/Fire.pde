@@ -20,7 +20,7 @@ class Fire extends GameObject {
   
   void show() {
     noStroke();
-   fill(255, 0, 0, t);
+   fill(red, t);
     square(location.x, location.y, size);
   
   }

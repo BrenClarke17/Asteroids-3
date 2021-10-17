@@ -1,7 +1,7 @@
 //Brennan Clarke
 //Asteroids
 
-boolean upkey, downkey, leftkey, rightkey, spacekey;
+boolean upkey, downkey, leftkey, rightkey, spacekey, enterkey;
 Ship myShip;
 ArrayList <GameObject> myObjects;
 int alives;
@@ -15,6 +15,8 @@ final int INTRO = 0;
 final int GAME  =  1;
 final int PAUSE =  2;
 final int GAMEOVER = 3;
+color red = #FF0303;
+
 
 //font
 PFont introfont;
@@ -33,7 +35,7 @@ void setup() {
   myObjects.add(new Asteroid());
 myObjects.add(new UFO());
   rectMode(CENTER);
-  upkey = downkey = leftkey = rightkey = spacekey = zkey = false;
+  upkey = downkey = leftkey = rightkey = spacekey = false;
 alives = 21;
 //intro gif code
 nframes = 6;

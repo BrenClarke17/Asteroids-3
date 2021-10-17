@@ -1,6 +1,10 @@
 void game() {
  background(0);
+ fill(0);
+ stroke(255);
   rect(25, 25, 50, 50);
+  line(15, 40, 15, 10);
+   line(35, 40, 35, 10);
   int i = 0;
   while (i < myObjects.size()) {
     GameObject myObj = myObjects.get(i);
@@ -19,6 +23,7 @@ myObjects.add(new UFO());
 rspawn = 1000;
 }
 rspawn--;
+
   
 }
 

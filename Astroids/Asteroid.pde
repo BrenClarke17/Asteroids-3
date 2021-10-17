@@ -25,7 +25,7 @@ class Asteroid extends GameObject {
 
   void act() {
     super.act();
-
+//asteroid breaking
     int i = 0;
     while (i < myObjects.size()) {
       GameObject myObj = myObjects.get(i);
@@ -35,14 +35,15 @@ class Asteroid extends GameObject {
           lives = 0;
           alives = alives - 1;
                       //partcle code
+                       int p = 0;
+          while (p < 15) {
             myObjects.add(new particles(location.x, location.y));
-            myObjects.add(new particles(location.x, location.y));
-            myObjects.add(new particles(location.x, location.y));
-            myObjects.add(new particles(location.x, location.y));
-            myObjects.add(new particles(location.x, location.y));
+            p++;
+          }
+         
          
           if ( size > 25) {
-            // breaking asteroids
+            // breaking asteroids 2
             myObjects.add(new Asteroid(size/2, location.x, location.y));
             myObjects.add(new Asteroid(size/2, location.x, location.y));
           }
