@@ -50,13 +50,10 @@ class UFO extends GameObject {
 
   void act() {
     super.act();
-    
     UbulletTimer ++;
     if (UbulletTimer >= 60) {
-      vx = 5;
-      vy = 5;
       
-     myObjects.add(new ufoBullets(location.x, location.y, vx, vy));
+     myObjects.add(new ufoBullets(location.x, location.y));
     UbulletTimer = 0;
     }
 
@@ -66,10 +63,32 @@ class UFO extends GameObject {
     if (location.y < 0) lives = 0;
     if (location.y > height) lives = 0; 
     
+    // bullet collision
+    int c = 0;
+    while (c < myObjects.size()) {
+      GameObject myObj = myObjects.get(c);
+      if (myObj instanceof Bullet) {
+        if (dist(location.x, location.y, myObj.location.x, myObj.location.y) <= size/2 + myObj.size/2) {
+          myObj.lives = 0;
+          lives = 0;
+          
+          //particle explosion
+          int l = 0;
+          while (l < 30) {
+            myObjects.add(new particles(location.x, location.y));
+            l ++;
+          }
+        }
+      }
+      
+      c ++;
+    
    
       
     
     }
 
-    // bullet collision
+    
   }
+
+}

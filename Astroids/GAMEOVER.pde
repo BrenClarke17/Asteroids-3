@@ -16,9 +16,16 @@ text("restart", 400, 400);
 //lose code
 if(myShip.lives == 0) {
 background(255, 0 ,0);
+textFont(introfont);
+textSize(100);
+text("U LOSE", 400, 150);
+fill(255);
+rect(400, 400, 300, 100);
+fill(0);
+textSize(25);
+textFont(introfont);
+text("restart", 400, 400);
 } else { 
-
-
 
 }
 
@@ -34,6 +41,7 @@ void gameoverclicks() {
   myObjects.add(new Asteroid());
 myObjects.add(new UFO());
 alives = 21;
+rspawn = 600;
   
 }
 }

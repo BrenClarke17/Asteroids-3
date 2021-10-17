@@ -14,8 +14,8 @@ textSize(50);
 fill(0);
 text("START", 400, 400);
 
-
 }
+
 
 void introclicks() {
  if (mouseX > 250 && mouseX < 550 && mouseY > 350 && mouseY < 450 ) {

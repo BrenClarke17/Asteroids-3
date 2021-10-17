@@ -1,3 +1,6 @@
+//Brennan Clarke
+//Asteroids
+
 boolean upkey, downkey, leftkey, rightkey, spacekey;
 Ship myShip;
 ArrayList <GameObject> myObjects;
@@ -30,7 +33,7 @@ void setup() {
   myObjects.add(new Asteroid());
 myObjects.add(new UFO());
   rectMode(CENTER);
-  upkey = downkey = leftkey = rightkey = spacekey = false;
+  upkey = downkey = leftkey = rightkey = spacekey = zkey = false;
 alives = 21;
 //intro gif code
 nframes = 6;
@@ -40,8 +43,8 @@ int i = 0;
 while ( i < nframes) {
 igif[i] = loadImage("frame_"+i+"_delay-0.5s.gif");
   i++;
-
-rspawn = 1000;
+//UFO spawn code
+rspawn = 600;
 }
 
 }

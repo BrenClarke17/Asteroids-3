@@ -1,5 +1,5 @@
 class Asteroid extends GameObject {
-
+ int imtimer, imthreshold;
 
   Asteroid() {
     location = new PVector (random(0, width), random(0, height));
@@ -53,5 +53,19 @@ class Asteroid extends GameObject {
     if (alives == 0) {
       mode = GAMEOVER;
     }
-  }
+  
+int o = 0;
+    while (o < myObjects.size()) {
+       GameObject myObj = myObjects.get(o);
+       if (myObj instanceof Ship) {
+          if(dist(location.x, location.y, myObj.location.x, myObj.location.y) < size/2 + 10 && myShip.imtimer < 0) {
+            myObj.lives --;
+            myShip.imtimer = 60;
+          }
+       }
+       
+       o ++;
+
+}
+}
 }
